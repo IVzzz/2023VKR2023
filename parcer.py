@@ -42,5 +42,25 @@ def connection_parser(ex):
     result['Flow Byts/s'] = step * pack_size * result['Pkt Len Var'] / result['Flow Duration']
     return result
 
+import pandas as pd
+import numpy as np
+
+data1 = pd.read_csv("norm.csv")
+
+def add_connection_to_csv(dataset, conn):
+    new_row = data1[:1]
+    conn_params = connection_parser(conn)
+    cols = list(data1.columns.values)
+    for i in cols:
+        new_row[i] = np.nan
+        if i == 'Label':
+            new_row[i] = 'Benign'
+        if i in conn_params:
+            new_row[i] = conn_params[i]
+    data = pd.concat([data1, new_row], ignore_index=True, sort=False)
+    return data
+
+data1 = add_connection_to_csv(data1, example)
+data1.to_csv('new_norm.csv')
 
 
