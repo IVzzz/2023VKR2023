@@ -1,19 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[46]:
-
-
 import re
 import datetime
 
 example = """13:03:41.795599 IP udp032919uds.hawaiiantel.net.6881 > 192.168.1.2.52055:
 Flags [.], seq 640160396:640161844, ack 436677393, win 2050, options [nop,nop,TS val 3805626438 ecr 4677385],
 length 1448"""
-
-
-# In[71]:
-
 
 def connection_parser(ex):
     conn = ex+'END'
@@ -51,28 +41,6 @@ def connection_parser(ex):
     result['Flow Pkts/s'] = step * result['Pkt Len Var'] / result['Flow Duration']
     result['Flow Byts/s'] = step * pack_size * result['Pkt Len Var'] / result['Flow Duration']
     return result
-
-
-# In[72]:
-
-
-connection_parser(example)
-
-
-# In[22]:
-
-
-
-
-
-# In[21]:
-
-
-
-
-
-# In[ ]:
-
 
 
 
