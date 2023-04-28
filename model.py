@@ -170,20 +170,12 @@ X_train.head()
 # In[54]:
 
 
-"""hyperparamters = {
+hyperparamters = {
     "learning_rate": [0.1,0.01,0.001],
     "batch_size": [1024,2048],
     "kernels": [1,2,4,8,16,32,64],
     "regularization" : ['l1','l2'],
     "dropout" : [0.5,0.7,0.9]
-}"""
-
-hyperparamters = {
-    "learning_rate": [0.1],
-    "batch_size": [1024],
-    "kernels": [1],
-    "regularization" : ['l1'],
-    "dropout" : [0.5]
 }
 
 
