@@ -6,8 +6,8 @@
 
 import pandas as pd
 import numpy as np
-NORM_LEN = 60000
-DDOS_LEN = 40000
+NORM_LEN = 6000
+DDOS_LEN = 4000
 data1 = pd.read_csv("norm.csv")
 data2 = pd.read_csv("ddos.csv")
 data1 = data1.sample(NORM_LEN)
